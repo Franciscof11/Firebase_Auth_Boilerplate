@@ -9,7 +9,7 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final formKey = GlobalKey();
+    final formKey = GlobalKey<FormState>();
     final usernameController = TextEditingController();
     final passwordController = TextEditingController();
     return Scaffold(
@@ -59,7 +59,9 @@ class SignInPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 35),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    formKey.currentState?.validate();
+                  },
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(double.infinity, 80),
                     backgroundColor: Colors.black,

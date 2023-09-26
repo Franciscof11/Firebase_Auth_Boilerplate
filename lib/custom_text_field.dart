@@ -36,7 +36,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Campo Invalido!';
+          return 'Invalid Field!';
         }
         return null;
       },
