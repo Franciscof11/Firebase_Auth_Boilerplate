@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'custom_text_field.dart';
-import 'social_sign_in_button.dart';
+import '../widgets/custom_text_field.dart';
+import '../widgets/social_sign_in_button.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
