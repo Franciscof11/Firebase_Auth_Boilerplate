@@ -31,14 +31,49 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return TextFormField(
       controller: widget.controller,
       obscureText: obscureText,
-      style: const TextStyle(fontSize: 16),
+      style: const TextStyle(
+        fontSize: 16,
+      ),
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'Campo Invalido!';
         }
         return null;
       },
+      cursorColor: Colors.grey,
       decoration: InputDecoration(
+        contentPadding:
+            const EdgeInsets.symmetric(vertical: 23, horizontal: 15),
+        suffixIconColor: Colors.grey[500],
+        labelStyle: const TextStyle(
+          fontSize: 16,
+          color: Colors.grey,
+          fontWeight: FontWeight.w600,
+        ),
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        fillColor: Colors.grey[200],
+        filled: true,
+        border: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide(
+            color: Colors.white,
+            width: 1,
+          ),
+        ),
+        enabledBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide(
+            color: Colors.white,
+            width: 0.6,
+          ),
+        ),
+        focusedBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide(
+            color: Colors.black26,
+            width: 1,
+          ),
+        ),
         labelText: widget.label,
         suffixIcon: widget.isSecret
             ? IconButton(
@@ -51,14 +86,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     Icon(obscureText ? Icons.visibility : Icons.visibility_off),
               )
             : null,
-        floatingLabelStyle: const TextStyle(fontSize: 20),
         prefixIcon: widget.prefixIcon,
-        errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.purple[800]!),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(18),
-        ),
       ),
     );
   }
