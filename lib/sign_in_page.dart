@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'custom_text_field.dart';
+import 'social_sign_in_button.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -96,8 +97,15 @@ class SignInPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 50),
-                Row()
+                const SizedBox(height: 35),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SocialSignInButton(urlImage: 'assets/google.png'),
+                    SizedBox(width: 24),
+                    SocialSignInButton(urlImage: 'assets/apple.png'),
+                  ],
+                )
               ],
             ),
           ),
