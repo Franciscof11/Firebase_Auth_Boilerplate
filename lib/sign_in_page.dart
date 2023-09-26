@@ -10,6 +10,8 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final formKey = GlobalKey();
+    final usernameController = TextEditingController();
+    final passwordController = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SingleChildScrollView(
@@ -36,9 +38,13 @@ class SignInPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 26),
-                const CustomTextField(label: 'Username'),
+                CustomTextField(
+                    label: 'Username', controller: usernameController),
                 const SizedBox(height: 16),
-                const CustomTextField(label: 'Password', isSecret: true),
+                CustomTextField(
+                    label: 'Password',
+                    isSecret: true,
+                    controller: passwordController),
                 const SizedBox(height: 10),
                 Align(
                   alignment: Alignment.centerRight,
