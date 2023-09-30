@@ -12,6 +12,7 @@ class SignInPage extends StatelessWidget {
     final formKey = GlobalKey<FormState>();
     final usernameController = TextEditingController();
     final passwordController = TextEditingController();
+    double widthDevice = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SingleChildScrollView(
@@ -82,7 +83,7 @@ class SignInPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      width: 110,
+                      width: widthDevice <= 380 ? 80 : 100,
                       child: Divider(
                         color: Colors.grey[600],
                         thickness: 0.5,
@@ -97,7 +98,7 @@ class SignInPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width: 110,
+                      width: widthDevice <= 380 ? 80 : 100,
                       child: Divider(
                         color: Colors.grey[600],
                         thickness: 0.5,
@@ -105,7 +106,7 @@ class SignInPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 35),
+                const SizedBox(height: 40),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -113,7 +114,8 @@ class SignInPage extends StatelessWidget {
                     SizedBox(width: 24),
                     SocialSignInButton(urlImage: 'assets/apple.png'),
                   ],
-                )
+                ),
+                const SizedBox(height: 35),
               ],
             ),
           ),
