@@ -65,6 +65,7 @@ class SignInPage extends StatelessWidget {
                     signIn(
                       email: emailController.text,
                       password: passwordController.text,
+                      context: context,
                     );
                   },
                   style: ElevatedButton.styleFrom(
