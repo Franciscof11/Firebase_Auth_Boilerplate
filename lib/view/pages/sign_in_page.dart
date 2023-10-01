@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../controller/sign_in.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/social_sign_in_button.dart';
 
@@ -10,7 +11,7 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
-    final usernameController = TextEditingController();
+    final emailController = TextEditingController();
     final passwordController = TextEditingController();
     double widthDevice = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -39,8 +40,7 @@ class SignInPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 26),
-                CustomTextField(
-                    label: 'Username', controller: usernameController),
+                CustomTextField(label: 'Email', controller: emailController),
                 const SizedBox(height: 16),
                 CustomTextField(
                     label: 'Password',
@@ -62,6 +62,10 @@ class SignInPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     formKey.currentState?.validate();
+                    signIn(
+                      email: emailController.text,
+                      password: passwordController.text,
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(double.infinity, 80),
