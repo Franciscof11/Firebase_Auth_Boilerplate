@@ -22,11 +22,11 @@ class SignInPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               children: [
-                const SizedBox(height: 80),
+                const SizedBox(height: 60),
                 //
                 const Icon(
                   Icons.lock,
-                  size: 180,
+                  size: 140,
                 ),
                 //
                 const SizedBox(height: 20),
@@ -78,7 +78,19 @@ class SignInPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 20),
+                GestureDetector(
+                  onTap: () {},
+                  child: Text(
+                    "Sign Up",
+                    style: GoogleFonts.rubik(
+                      color: Colors.grey[700],
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 40),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
