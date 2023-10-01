@@ -1,3 +1,4 @@
+import 'package:auth_boilerplate/view/pages/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -90,7 +91,12 @@ class _SignInPageState extends State<SignInPage> {
                 ),
                 const SizedBox(height: 20),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignUpPage(),
+                    ),
+                  ),
                   child: Text(
                     "Sign Up",
                     style: GoogleFonts.rubik(
