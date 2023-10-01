@@ -5,9 +5,14 @@ import '../../controller/sign_in.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/social_sign_in_button.dart';
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
 
+  @override
+  State<SignInPage> createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();

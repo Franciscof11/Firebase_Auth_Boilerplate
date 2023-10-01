@@ -11,7 +11,9 @@ void signIn({
   showDialog(
     context: context,
     builder: (context) => const Center(
-      child: CircularProgressIndicator(),
+      child: CircularProgressIndicator(
+        color: Colors.black,
+      ),
     ),
   );
   try {
@@ -19,19 +21,51 @@ void signIn({
       email: email,
       password: password,
     );
+    Navigator.pop(context);
     //
   } on FirebaseAuthException catch (e) {
     print('------------------------------------------');
     print(e.code);
-    switch (e.code) {
-      case 'INVALID_LOGIN_CREDENTIALS':
-        print('###########################');
-        print('Invalid Credentials!');
+    Navigator.pop(context);
+    if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
+      print('###########################');
+      print('Invalid Credentials!');
 
-      case 'a':
-        print('###########################');
-        print('');
+      showDialog(
+        context: context,
+        builder: (context) => Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 240),
+          child: Card(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Invalid Credentials!',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                    ),
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text(
+                      'OK',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
     }
   }
-  Navigator.pop(context);
 }
