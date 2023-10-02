@@ -69,51 +69,54 @@ class _SignUpPageState extends State<SignUpPage> {
                   const SizedBox(height: 45),
                   ElevatedButton(
                     onPressed: () async {
-                      /*   formKey.currentState?.validate(); */
-                      if (passwordSignUpController.text ==
-                          confirmPassword.text) {
-                        createUser(
-                          email: emailSignUpController.text,
-                          password: passwordSignUpController.text,
-                          context: context,
-                        );
-                      } else {
-                        showDialog(
-                          context: context,
-                          builder: (context) => Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 60, vertical: 240),
-                            child: Card(
-                              child: Center(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Text(
-                                      'Passwords dont match!',
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 40),
-                                    ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.black,
-                                      ),
-                                      onPressed: () => Navigator.pop(context),
-                                      child: const Text(
-                                        'OK',
+                      final formValid =
+                          formsignUpKey.currentState?.validate() ?? false;
+                      if (formValid) {
+                        if (passwordSignUpController.text ==
+                            confirmPassword.text) {
+                          createUser(
+                            email: emailSignUpController.text,
+                            password: passwordSignUpController.text,
+                            context: context,
+                          );
+                        } else {
+                          showDialog(
+                            context: context,
+                            builder: (context) => Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 60, vertical: 240),
+                              child: Card(
+                                child: Center(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      const Text(
+                                        'Passwords dont match!',
                                         style: TextStyle(
                                           fontSize: 18,
-                                          color: Colors.white,
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                      const SizedBox(height: 40),
+                                      ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.black,
+                                        ),
+                                        onPressed: () => Navigator.pop(context),
+                                        child: const Text(
+                                          'OK',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        );
+                          );
+                        }
                       }
                     },
                     style: ElevatedButton.styleFrom(
