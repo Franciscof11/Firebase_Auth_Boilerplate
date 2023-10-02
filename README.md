@@ -1,6 +1,6 @@
-<h2 align="center">Mock Shop App🛒<h2>
+<h2 align="center">Firebase Auth Boilerplate🔒<h2>
 <p align="center">
-    <img src="https://i.imgur.com/L5SBndT.png" width="350" height="350" alt="App Banner" />
+    <img src="https://i.imgur.com/nHM9GeV.png" width="350" height="350" alt="App Banner" />
 </p>
 
    <h2>Topics 📋</h2>
@@ -17,7 +17,7 @@
    <h2>About 📖</h2>
    
    <p>
-    App that simulates an online sales application, consuming the DummyJSON open source API (https://dummyjson.com/). The application allows us to explore the list of products that comes from the api, see the details of the products listed and simulates a shopping cart.
+    This is a firebase authentication module that I created to speed up my development in future projects that use the same authentication pattern using firebase. With this module you can create a new account, log in, log in with your Google account and Apple account.
    </p>
 
 ---
@@ -25,8 +25,8 @@
    <h2>Preview 📱</h2><br>
 
    <p a>
-   <img src="preview/demo1.gif" width="400" height="800" alt="App Preview"> 
-   <img src="preview/demo2.gif" width="400" height="800" alt="App Preview"> 
+   <img src="assets/prev1.jpg" width="400" height="800" alt="App Preview"> 
+   <img src="assets/prev2.jpg" width="400" height="800" alt="App Preview"> 
    </p>
 
 ---
@@ -34,8 +34,7 @@
  <h2>
    Learnings 🤯
    </h2>
-The development of this application made me study more deeply about api requests in flutter.animations and state management with GetX package.
-It also forced me to study more about client http , using the DIO package. I learned how to handle connection errors when querying the api.
+    Strengthened knowledge of Firebase and Firebase authentication.
  
 ---
 
@@ -43,14 +42,11 @@ It also forced me to study more about client http , using the DIO package. I lea
    Technologies Used 👨🏽‍💻
    </h2>
    
-  * Flutter
-  * Dart
-  * GetX (For State Management) 
-  * Dio (For API consuming) 
-  * Lottie (For Animations)
-  * Animated Splash Screen
-  * Flutter Launcher Icons
-  * Rest API (https://dummyjson.com/)
+  * Flutter       
+  * Dart      
+  * Firebase       
+  * Firebase_Authenticator         
+  * Google_sign_in      
   
 ---
 
@@ -58,10 +54,10 @@ It also forced me to study more about client http , using the DIO package. I lea
 
 ```
 - Clone this repository:
-$ git clone https://github.com/Franciscof11/Mock-Shop--Flutter.git MockShop
+$ git clone https://github.com/Franciscof11/Firebase_Auth_Boilerplate Firebase_Auth_Boilerplate
 
 - Enter in directory:
-$ cd MockShop
+$ cd Firebase_Auth_Boilerplate
 
 - For install dependencies:
 $ flutter pub get
