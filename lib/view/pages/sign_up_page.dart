@@ -1,11 +1,12 @@
 import 'package:auth_boilerplate/view/pages/sign_in_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../controller/sign_up.dart';
+import '../widgets/apple_sign_in_button.dart';
 import '../widgets/custom_text_field.dart';
-import '../widgets/social_sign_in_button.dart';
+import '../widgets/google_sign_in_button.dart';
+import '../widgets/remove_glow_effect.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -15,20 +16,19 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final formsignUpKey = GlobalKey<FormState>();
+  final emailSignUpController = TextEditingController();
+  final passwordSignUpController = TextEditingController();
+  final confirmPassword = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    final formKey = GlobalKey<FormState>();
-    final emailSignUpController = TextEditingController();
-    final passwordSignUpController = TextEditingController();
-    final confirmPassword = TextEditingController();
     double widthDevice = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      body: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) => SingleChildScrollView(
+      body: RemoveGlowEffect(
+        child: SingleChildScrollView(
           child: Form(
-            key: formKey,
+            key: formsignUpKey,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
@@ -180,9 +180,13 @@ class _SignUpPageState extends State<SignUpPage> {
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SocialSignInButton(urlImage: 'assets/google.png'),
+                      GoogleSignInButton(
+                        urlImage: 'assets/google.png',
+                      ),
                       SizedBox(width: 24),
-                      SocialSignInButton(urlImage: 'assets/apple.png'),
+                      AplleSignInButton(
+                        urlImage: 'assets/apple.png',
+                      ),
                     ],
                   ),
                   const SizedBox(height: 35),
