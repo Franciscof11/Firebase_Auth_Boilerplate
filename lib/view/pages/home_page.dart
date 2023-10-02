@@ -1,4 +1,5 @@
 import 'package:auth_boilerplate/controller/sign_out.dart';
+import 'package:auth_boilerplate/view/pages/sign_in_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String? username;
+  String? username = '';
   @override
   Widget build(BuildContext context) {
     if (FirebaseAuth.instance.currentUser != null) {
@@ -23,9 +24,16 @@ class _HomePageState extends State<HomePage> {
           children: [
             const Text('User logged!'),
             const SizedBox(height: 25),
-            Text(username!),
+            Text(username ?? ''),
             ElevatedButton(
-              onPressed: () => signOut(),
+              onPressed: () {
+                signOut();
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignInPage(),
+                    ));
+              },
               child: const Text('SIGN OUT'),
             )
           ],
