@@ -63,6 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '944435469157',
     projectId: 'fir-auth-boilerplate-a6e81',
     storageBucket: 'fir-auth-boilerplate-a6e81.appspot.com',
+    androidClientId: '944435469157-vi8plhp4en1n13febg6uphokb2dp7s7p.apps.googleusercontent.com',
+    iosClientId: '944435469157-2f53f63stsqd045jo3a2gnu6ki54icnt.apps.googleusercontent.com',
     iosBundleId: 'com.example.authBoilerplate',
   );
 }

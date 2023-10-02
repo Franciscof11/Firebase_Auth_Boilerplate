@@ -1,13 +1,18 @@
+import 'package:auth_boilerplate/controller/google_sign_in.dart';
 import 'package:flutter/material.dart';
 
-class SocialSignInButton extends StatelessWidget {
+class GoogleSignInButton extends StatelessWidget {
   final String urlImage;
-  const SocialSignInButton({super.key, required this.urlImage});
+
+  const GoogleSignInButton({
+    super.key,
+    required this.urlImage,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () => signInWithGoogle(),
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
