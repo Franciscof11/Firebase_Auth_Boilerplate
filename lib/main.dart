@@ -11,7 +11,8 @@ void main() async {
   );
   runApp(
     DevicePreview(
-      enabled: true,
+      enabled:
+          false, // Se tiver em modo debug -> true, caso esteja em produção, false.
       builder: (context) => const MainApp(),
     ),
   );
